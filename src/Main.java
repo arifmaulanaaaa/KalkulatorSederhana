@@ -17,50 +17,57 @@ public class Main {
             int pilihanHalamanAwal = input.nextInt();
 
             if (pilihanHalamanAwal == 1) {
-                System.out.println("Masukkan angka pertama: ");
-                int angkaPertama = input.nextInt();
+                try {
+                    System.out.println("Masukkan angka pertama: ");
+                    int angkaPertama = input.nextInt();
 
-                System.out.println("Masukkan angka kedua: ");
-                int angkaKedua = input.nextInt();
+                    System.out.println("Masukkan angka kedua: ");
+                    int angkaKedua = input.nextInt();
 
-                System.out.println("Masukkan Sistem Operasi: ");
-                System.out.println("1 untuk pertambahan");
-                System.out.println("2 untuk pengurangan");
-                System.out.println("3 untuk perkalian");
-                System.out.println("4 untuk pembagian");
-                int pilihan = input.nextInt();
+                    System.out.println("Masukkan Sistem Operasi: ");
+                    System.out.println("1 untuk pertambahan");
+                    System.out.println("2 untuk pengurangan");
+                    System.out.println("3 untuk perkalian");
+                    System.out.println("4 untuk pembagian");
+                    int pilihan = input.nextInt();
 
-                int hasil = 0;
+                    int hasil = 0;
 
-                switch (pilihan) {
-                    case 1:
-                        hasil = angkaPertama + angkaKedua;
-                        System.out.println("hasilnya adalah " + hasil);
-                        riwayat.add(angkaPertama + " + " + angkaKedua + " = " + hasil);
-                        break;
-
-                    case 2:
-                        hasil = angkaPertama - angkaKedua;
-                        System.out.println("hasilnya adalah " + hasil);
-                        riwayat.add(angkaPertama + " - " + angkaKedua + " = " + hasil);
-                        break;
-
-                    case 3:
-                        hasil = angkaPertama * angkaKedua;
-                        System.out.println("hasilnya adalah " + hasil);
-                        riwayat.add(angkaPertama + " x " + angkaKedua + " = " + hasil);
-                        break;
-
-                    case 4:
-                        if (angkaKedua != 0) {
-                            hasil = angkaPertama / angkaKedua;
+                    switch (pilihan) {
+                        case 1:
+                            hasil = angkaPertama + angkaKedua;
                             System.out.println("hasilnya adalah " + hasil);
-                            riwayat.add(angkaPertama + " : " + angkaKedua + " = " + hasil);
-                        } else {
-                            System.out.println("Pembagian dengan nol tidak valid!");
-                        }
-                        break;
+                            riwayat.add(angkaPertama + " + " + angkaKedua + " = " + hasil);
+                            break;
+
+                        case 2:
+                            hasil = angkaPertama - angkaKedua;
+                            System.out.println("hasilnya adalah " + hasil);
+                            riwayat.add(angkaPertama + " - " + angkaKedua + " = " + hasil);
+                            break;
+
+                        case 3:
+                            hasil = angkaPertama * angkaKedua;
+                            System.out.println("hasilnya adalah " + hasil);
+                            riwayat.add(angkaPertama + " x " + angkaKedua + " = " + hasil);
+                            break;
+
+                        case 4:
+                            if (angkaKedua != 0) {
+                                hasil = angkaPertama / angkaKedua;
+                                System.out.println("hasilnya adalah " + hasil);
+                                riwayat.add(angkaPertama + " : " + angkaKedua + " = " + hasil);
+                            } else {
+                                System.out.println("Pembagian dengan nol tidak valid!");
+                            }
+                            break;
+                    }
+
+                } catch (Exception e) {
+                    System.out.println("Terjadi kesalahan. Mohon masukkan input berupa angka.");
+                    input.nextLine();
                 }
+
                 System.out.println("Masih mau lanjut menghitung? (yes/no)");
                 String pilihanLanjut = input.next();
                 if (pilihanLanjut.equalsIgnoreCase("no")) {
@@ -71,16 +78,19 @@ public class Main {
                 System.out.println("=== Riwayat Menghitung ===");
                 if (riwayat.isEmpty()) {
                     System.out.println("Riwayat belum ada.");
-                    System.out.println("Tekan enter untuk kembali ke menu sebelumnya.");
-                    input.nextLine();
-                    // input.nextLine();
+                } else {
+                    for (int i = 0; i < riwayat.size(); i++) {
+                        System.out.println((i + 1) + ". " + riwayat.get(i));
+                    }
                 }
-                for (int i = 0; i < riwayat.size(); i++) {
-                    System.out.println((i + 1) + ". " + riwayat.get(i));
-                }
+                System.out.println("Tekan enter untuk kembali ke menu utama.");
+                input.nextLine();
+                input.nextLine();
+
             } else if (pilihanHalamanAwal == 3) {
                 lanjut = false;
             }
+
         }
 
         System.out.println("=== Terimakasih telah menggunakan Kalkulator ===");
