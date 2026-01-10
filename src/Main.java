@@ -19,10 +19,10 @@ public class Main {
             if (pilihanHalamanAwal == 1) {
                 try {
                     System.out.println("Masukkan angka pertama: ");
-                    int angkaPertama = input.nextInt();
+                    double angkaPertama = input.nextDouble();
 
                     System.out.println("Masukkan angka kedua: ");
-                    int angkaKedua = input.nextInt();
+                    double angkaKedua = input.nextDouble();
 
                     System.out.println("Masukkan Sistem Operasi: ");
                     System.out.println("1 untuk pertambahan");
@@ -31,30 +31,30 @@ public class Main {
                     System.out.println("4 untuk pembagian");
                     int pilihan = input.nextInt();
 
-                    int hasil = 0;
+                    double hasil;
 
                     switch (pilihan) {
                         case 1:
-                            hasil = angkaPertama + angkaKedua;
+                            hasil = tambah(angkaPertama, angkaKedua);
                             System.out.println("hasilnya adalah " + hasil);
                             riwayat.add(angkaPertama + " + " + angkaKedua + " = " + hasil);
                             break;
 
                         case 2:
-                            hasil = angkaPertama - angkaKedua;
+                            hasil = kurang(angkaPertama, angkaKedua);
                             System.out.println("hasilnya adalah " + hasil);
                             riwayat.add(angkaPertama + " - " + angkaKedua + " = " + hasil);
                             break;
 
                         case 3:
-                            hasil = angkaPertama * angkaKedua;
+                            hasil = kali(angkaPertama, angkaKedua);
                             System.out.println("hasilnya adalah " + hasil);
                             riwayat.add(angkaPertama + " x " + angkaKedua + " = " + hasil);
                             break;
 
                         case 4:
                             if (angkaKedua != 0) {
-                                hasil = angkaPertama / angkaKedua;
+                                hasil = bagi(angkaPertama, angkaKedua);
                                 System.out.println("hasilnya adalah " + hasil);
                                 riwayat.add(angkaPertama + " : " + angkaKedua + " = " + hasil);
                             } else {
@@ -95,5 +95,21 @@ public class Main {
 
         System.out.println("=== Terimakasih telah menggunakan Kalkulator ===");
         input.close();
+    }
+
+    public static double tambah(double a, double b) {
+        return a + b;
+    }
+
+    public static double kurang(double a, double b) {
+        return a - b;
+    }
+
+    public static double kali(double a, double b) {
+        return a * b;
+    }
+
+    public static double bagi(double a, double b) {
+        return a / b;
     }
 }
