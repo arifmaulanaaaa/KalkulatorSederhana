@@ -8,7 +8,6 @@ public class Main {
         ArrayList<String> riwayat = new ArrayList<>();
 
         while (lanjut) {
-
             System.out.println("=== Kalkulator Sederhana ===");
             System.out.println("1 untuk HITUNG");
             System.out.println("2 untuk RIWAYAT");
@@ -82,13 +81,22 @@ public class Main {
                     for (int i = 0; i < riwayat.size(); i++) {
                         System.out.println((i + 1) + ". " + riwayat.get(i));
                     }
+                    System.out.println("\nBatas riwayat hanya sampai 10.");
+                    System.out.println("Jika melebihi batas, akan dihapus otomatis.");
                 }
 
-                System.out.println("Mau menghapus riwayat?\n");
+                System.out.println("\nMau menghapus riwayat?");
                 String jawabanHapus = input.next();
                 if (jawabanHapus.equalsIgnoreCase("yes")) {
                     riwayat.clear();
+                    System.out.println("Riwayat berhasil dihapus.");
+                } else if (riwayat.size() >= 10) {
+                    riwayat.clear();
                 }
+
+                System.out.println("Tekan enter untuk kembali ke menu utama");
+                input.nextLine();
+                input.nextLine();
 
             } else if (pilihanHalamanAwal == 3) {
                 lanjut = false;
