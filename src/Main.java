@@ -83,9 +83,12 @@ public class Main {
                         System.out.println((i + 1) + ". " + riwayat.get(i));
                     }
                 }
-                System.out.println("Tekan enter untuk kembali ke menu utama.");
-                input.nextLine();
-                input.nextLine();
+
+                System.out.println("Mau menghapus riwayat?\n");
+                String jawabanHapus = input.next();
+                if (jawabanHapus.equalsIgnoreCase("yes")) {
+                    riwayat.clear();
+                }
 
             } else if (pilihanHalamanAwal == 3) {
                 lanjut = false;
