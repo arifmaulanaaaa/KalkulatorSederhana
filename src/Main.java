@@ -24,42 +24,43 @@ public class Main {
                     double angkaKedua = input.nextDouble();
 
                     System.out.println("Masukkan Sistem Operasi: ");
-                    System.out.println("1 untuk pertambahan");
-                    System.out.println("2 untuk pengurangan");
-                    System.out.println("3 untuk perkalian");
-                    System.out.println("4 untuk pembagian");
+                    System.out.println("1. (+), 2. (-), 3. (*), 4. (:)");
                     int pilihan = input.nextInt();
 
-                    double hasil;
+                    double hasil = 0;
+                    String simbol = "";
+                    boolean valid = true;
 
                     switch (pilihan) {
                         case 1:
                             hasil = tambah(angkaPertama, angkaKedua);
-                            System.out.println("hasilnya adalah " + hasil);
-                            riwayat.add(angkaPertama + " + " + angkaKedua + " = " + hasil);
+                            simbol = "+";
                             break;
-
                         case 2:
                             hasil = kurang(angkaPertama, angkaKedua);
-                            System.out.println("hasilnya adalah " + hasil);
-                            riwayat.add(angkaPertama + " - " + angkaKedua + " = " + hasil);
+                            simbol = "-";
                             break;
-
                         case 3:
                             hasil = kali(angkaPertama, angkaKedua);
-                            System.out.println("hasilnya adalah " + hasil);
-                            riwayat.add(angkaPertama + " x " + angkaKedua + " = " + hasil);
+                            simbol = "*";
                             break;
-
                         case 4:
                             if (angkaKedua != 0) {
                                 hasil = bagi(angkaPertama, angkaKedua);
-                                System.out.println("hasilnya adalah " + hasil);
-                                riwayat.add(angkaPertama + " : " + angkaKedua + " = " + hasil);
+                                simbol = ":";
                             } else {
                                 System.out.println("Pembagian dengan nol tidak valid!");
                             }
                             break;
+                        default:
+                            System.out.println("Pilihan operasi tidak valid.");
+                            valid = false;
+                    }
+                    if (valid) {
+                        String catatan = String.format("%.1f %s %.1f = %.1f", angkaPertama, simbol, angkaKedua,
+                                hasil);
+                        System.out.println("Hasilnya adalah: " + catatan);
+                        riwayat.add(catatan);
                     }
 
                 } catch (Exception e) {
